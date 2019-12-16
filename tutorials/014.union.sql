@@ -11,5 +11,3 @@ select cust_contact from Customers where cust_state IN('MI','IN','IL') OR cust_n
 
 -- 也可以用union实现
 select cust_contact from Customers where cust_state IN('MI','IN','IL') union select cust_name from Customers where cust_name = 'Fun4All';
-
--- 从上面的比较可知，union其实就是将两个select语句连在一起而已，而且语句更长，还没有我们之前学过的好。但是在某些情况下，它很有用,它使处理更简单
