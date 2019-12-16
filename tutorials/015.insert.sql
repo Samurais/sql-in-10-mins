@@ -16,9 +16,16 @@ insert into Customers(cust_id ,cust_name,cust_address,   cust_city,     cust_sta
 
 -- 复制表  请复制Customers表，命名为CustCopy
 -- TODO 待解决primary key不重复问题
--- create table CustomersCopy as select * from Customers;
+create table CustomersCopy2(id int not null auto_increment, PRIMARY KEY (id)) as select * from Customers;
 
 
 -- 如果只想复制部分列，可以明确给出列名
 -- select cust_city,cust_contact,cust_id into CustCopy from Customers;
 -- create table CustCopy_2  as select cust_city,cust_contact,cust_id from Customers;
+
+
+
+
+
+
+
