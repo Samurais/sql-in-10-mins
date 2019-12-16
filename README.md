@@ -10,6 +10,10 @@ https://item.jd.com/11232698.html
 
 ## 内容
 
+围绕一个简单的表结构，做 SQL 脚本的练习。
+
+![](./assets/mysql.sqlin10mins-er.png)
+
 查看 [Tutorials](./tutorials)。
 
 ```

@@ -3,7 +3,13 @@
 -- http://forta.com/books/0672336073/
 -- Example table creation scripts for MySQL.
 -- -----------------------------------------
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
 
+-- Create Database
+-- ----------------------------
+CREATE DATABASE IF NOT EXISTS `sqlin10mins` CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `sqlin10mins`;
 
 -- ----------------------
 -- Create Customers table

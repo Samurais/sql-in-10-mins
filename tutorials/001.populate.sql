@@ -3,7 +3,7 @@
 -- http://forta.com/books/0672336073/
 -- Example table population scripts for MySQL.
 -- -------------------------------------------
-
+USE `sqlin10mins`;
 
 -- ------------------------
 -- Populate Customers table
