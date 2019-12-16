@@ -1,150 +1,91 @@
-<pre name="code" class="html"># SQL 快速学习
-Sams Teach Yourself SQL I 10 Minutes 4th Edition &nbsp;(中文名： sql 必知必会（4th）)
+# SQL 必知必会（4th）练习
 
+根据本书，练习使用 SQL 脚本。
 
+Sams Teach Yourself SQL In 10 Minutes 4th Edition &nbsp;(中文名： sql 必知必会（4th）)
 
+https://item.jd.com/11232698.html
 
-下载书中源码：
-http://forta.com/books/0672336073/TeachYourselfSQL_MySQL.zip
-下载后的编码create.txt有点问题，source /root/github/sql/src/create.txt不成功，可用notepad++ 修改编码为utf-8
-代码中的TeachYourselfSQL_MySQL.zip是转码后的，可正确运行。
+![](./assets/book.jpg)
 
+## 内容
 
+查看 [Tutorials](./tutorials)。
 
+```
+./tutorials
+├── 001.create.sql
+├── 001.populate.sql
+├── 002.select-from.sql
+├── 003.oder-by.sql
+├── 004.where.sql
+├── 005.where_and_or_not_in.sql
+├── 006.like.sql
+├── 007.concatenate_and_select-as.sql
+├── 008.function.sql
+├── 009.max_min_avg.sql
+├── 010.group-by.sql
+├── 011.subquery.sql
+├── 012.join.sql
+├── 013.advance_join.sql
+├── 014.union.sql
+├── 015.insert.sql
+├── 016.update_del.sql
+├── 017.cre_mv_del_table.sql
+├── 018.view.sql
+└── 019.procudure.sql
+```
 
-启动mysql 命令行,如果不知道如何运行sql脚本，一条一条的插入create和populate语句即可。
-如何执行脚本？ 打开mysql&nbsp;
+## 安装 MySQL
 
+本教程使用 Docker Compose 运行 MySQL 服务。
 
-执行脚本：
-mysql&gt; source /root/github/sql/src/create.txt (`要注意，这个是在mysql登录进去的命令行中，而不是直接在linux的命令行下执行!`)
+### 配置
 
-也可以把create.txt 里面的内容复制下来，在Navicat中执行新建查询，然后粘贴sql执行。
+环境变量，MySQL 运行端口、ROOT 密码等。
 
+```
+cp sample.env .env
+```
 
+启动服务。
 
-更多帮助，可借助help命令：
+```
+./scripts/start.sh
+```
 
+查看服务状态。
 
+```
+docker-compose ps
+```
 
+连接 MySQL，使用工具 MySQL Workbench，Navicat 等。
 
-mysql&gt; help
+### 停止服务
 
+```
+docker-compose down
+```
 
-For information about MySQL products and services, visit:
-&nbsp; &nbsp;http://www.mysql.com/
-For developer information, including the MySQL Reference Manual, visit:
-&nbsp; &nbsp;http://dev.mysql.com/
-To buy MySQL Enterprise support, training, or other products, visit:
-&nbsp; &nbsp;https://shop.mysql.com/
+### 停止并清空数据
 
+```
+./scripts/flush.sh
+```
 
-List of all MySQL commands:
-Note that all text commands must be first on line and end with ';'
-? &nbsp; &nbsp; &nbsp; &nbsp; (\?) Synonym for `help'.
-clear &nbsp; &nbsp; (\c) Clear the current input statement.
-connect &nbsp; (\r) Reconnect to the server. Optional arguments are db and host.
-delimiter (\d) Set statement delimiter.
-edit &nbsp; &nbsp; &nbsp;(\e) Edit command with $EDITOR.
-ego &nbsp; &nbsp; &nbsp; (\G) Send command to mysql server, display result vertically.
-exit &nbsp; &nbsp; &nbsp;(\q) Exit mysql. Same as quit.
-go &nbsp; &nbsp; &nbsp; &nbsp;(\g) Send command to mysql server.
-help &nbsp; &nbsp; &nbsp;(\h) Display this help.
-nopager &nbsp; (\n) Disable pager, print to stdout.
-notee &nbsp; &nbsp; (\t) Don't write into outfile.
-pager &nbsp; &nbsp; (\P) Set PAGER [to_pager]. Print the query results via PAGER.
-print &nbsp; &nbsp; (\p) Print current command.
-prompt &nbsp; &nbsp;(\R) Change your mysql prompt.
-quit &nbsp; &nbsp; &nbsp;(\q) Quit mysql.
-rehash &nbsp; &nbsp;(\#) Rebuild completion hash.
-source &nbsp; &nbsp;(\.) Execute an SQL script file. Takes a file name as an argument.
-status &nbsp; &nbsp;(\s) Get status information from the server.
-system &nbsp; &nbsp;(\!) Execute a system shell command.
-tee &nbsp; &nbsp; &nbsp; (\T) Set outfile [to_outfile]. Append everything into given outfile.
-use &nbsp; &nbsp; &nbsp; (\u) Use another database. Takes database name as argument.
-charset &nbsp; (\C) Switch to another charset. Might be needed for processing binlog with multi-byte charsets.
-warnings &nbsp;(\W) Show warnings after every statement.
-nowarning (\w) Don't show warnings after every statement.
+## 开源许可协议
 
+Copyright 2019 Hai Liang Wang <hailiang.hl.wang@gmail.com>
 
-For server side help, type 'help contents'
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
 
+    http://www.apache.org/licenses/LICENSE-2.0
 
-
-
-注： 上面的关键字都是mysql命令，比如use &nbsp;test; &nbsp; &nbsp;比如清屏 system clear
-如果我们需要查找从字符串中提取时间：'2008-02-03',我们想知道mysql的函数集
-进行查找：
-
-
-
-
-mysql&gt; help contents
-You asked for help about help category: &quot;Contents&quot;
-For more information, type 'help &lt;item&gt;', where &lt;item&gt; is one of the following
-categories:
-&nbsp; &nbsp;Account Management
-&nbsp; &nbsp;Administration
-&nbsp; &nbsp;Compound Statements
-&nbsp; &nbsp;Data Definition
-&nbsp; &nbsp;Data Manipulation
-&nbsp; &nbsp;Data Types
-&nbsp; &nbsp;Functions
-&nbsp; &nbsp;Functions and Modifiers for Use with GROUP BY
-&nbsp; &nbsp;Geographic Features
-&nbsp; &nbsp;Help Metadata
-&nbsp; &nbsp;Language Structure
-&nbsp; &nbsp;Plugins
-&nbsp; &nbsp;Procedures
-&nbsp; &nbsp;Storage Engines
-&nbsp; &nbsp;Table Maintenance
-&nbsp; &nbsp;Transactions
-&nbsp; &nbsp;User-Defined Functions
-&nbsp; &nbsp;Utility
-
-
-
-
-mysql&gt; help Date and Time Functions
-You asked for help about help category: &quot;Date and Time Functions&quot;
-For more information, type 'help &lt;item&gt;', where &lt;item&gt; is one of the following
-topics:
-&nbsp; &nbsp;...
-&nbsp; &nbsp;MICROSECOND
-&nbsp; &nbsp;MINUTE
-&nbsp; &nbsp;MONTH
-&nbsp; &nbsp;MONTHNAME
-&nbsp; &nbsp;NOW
-&nbsp; &nbsp;PERIOD_ADD
-&nbsp; &nbsp;PERIOD_DIFF
-&nbsp; &nbsp;QUARTER
-&nbsp; &nbsp;SECOND
-&nbsp; &nbsp;SEC_TO_TIME
-&nbsp; &nbsp;STR_TO_DATE
-&nbsp; &nbsp;SUBDATE
-&nbsp; &nbsp;SUBTIME
-&nbsp; &nbsp;SYSDATE
-&nbsp; &nbsp;TIME FUNCTION
-&nbsp; &nbsp;TIMEDIFF
-&nbsp; &nbsp;TIMESTAMP FUNCTION
-&nbsp; &nbsp;TIMESTAMPADD
-&nbsp; &nbsp;TIMESTAMPDIFF
-&nbsp; &nbsp;TIME_FORMAT
-&nbsp; &nbsp;TIME_TO_SEC
-&nbsp; &nbsp;TO_DAYS
-&nbsp; &nbsp;UNIX_TIMESTAMP
-&nbsp; &nbsp;UTC_DATE
-&nbsp; &nbsp;UTC_TIME
-&nbsp; &nbsp;UTC_TIMESTAMP
-&nbsp; &nbsp;WEEK
-&nbsp; &nbsp;WEEKDAY
-&nbsp; &nbsp;WEEKOFYEAR
-&nbsp; &nbsp;YEAR
-&nbsp; &nbsp;YEARWEEK
-
-
-mysql&gt; help MONTH
-</pre>
-
-4.如何使用mysql自动补全命令
-  使用mycli工具即可
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.

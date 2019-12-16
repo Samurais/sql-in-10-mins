@@ -1,0 +1,14 @@
+version: "3"
+services:
+  mysql:
+    image: chatopera/mysql:5.7
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=${DB_PASSWD:-123456}
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=${DB_PASSWD:-123456}
+    ports:
+      - "${MYSQL_PORT:-8037}:3306"
+    volumes:
+      - ./database/mysql/data:/var/lib/mysql
+    command: --max_allowed_packet=32505856
