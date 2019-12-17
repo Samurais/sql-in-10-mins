@@ -14,7 +14,7 @@ select max(prod_price) as max_price from Products;
 select min(prod_price) as min_price from Products;
 
 -- 求订单20005所有购买的商品数
-select sum(quantity)as item_ordered from OrderItems where order_num= 20005;
+select sum(quantity) as item_ordered from OrderItems where order_num= 20005;
 
     -- 注意下面这个,它实际上求的是订单20005中买了几种商品
 select count(*) from OrderItems where order_num=20005;
